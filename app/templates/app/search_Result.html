@@ -1,0 +1,16 @@
+{% extends "app/layout.html" %}
+{% block content %}
+
+{% if data %}
+{% for animal in data %}
+{% load static %}
+<div>
+    <img src="{{ animal.photo.url }}" alt={{ animal.animal_name }}>>
+    <h2>{{ animal.animal_name }}</h2>
+    <p>Bio- {{ animal.bio }}</p>
+</div>
+{% endfor %}
+{% else %}
+    <h4>no result for this search</h4>
+{% endif %}
+{% endblock %}

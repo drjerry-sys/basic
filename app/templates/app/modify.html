@@ -1,0 +1,26 @@
+{% extends "app/layout.html" %}
+
+{% block content %}
+<a href="{% url 'profileForm' %}"><h4>Add</h4></a>
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Type</th>
+            <th>Act Level</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for animal in animals %}
+        <tr>
+            <td><input type="text"  value={{ animal.animal_name }} disabled></td>
+            <td><input type="text" value={{ animal.animal_age }} disabled></td>
+            <td><input type="text" value={{ animal.animal_type }} disabled></td>
+            <td><input type="text" value={{ animal.activity_level }} disabled></td>
+            <td><a href="{% url 'edit' id=animal.id %}"><h4>Edit</h4></a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock content %}
